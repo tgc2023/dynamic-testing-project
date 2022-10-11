@@ -3,13 +3,13 @@
 # The model that represents a reservation of a seat in a room
 class Reserva < ApplicationRecord
   validates :sala, presence: true, inclusion: { in: [1, 2, 3, 4, 5, 6, 7, 8],
-                                                message: '%<value>s no es una sala existente' },
+                                                message: I18n.t('reserva.sala') },
                    uniqueness: { scope: %i[fecha asiento horario] }
   validates :fecha, presence: true
   validates :asiento, presence: true,
                       numericality: { only_integer: true, greater_than: 0, less_than: 49 }
   validates :horario, presence: true, inclusion: { in: %w[MATINÉ TANDA NOCHE],
-                                                   message: '%<value>s no es un horario valido' }
+                                                   message: I18n.t('reserva.horario') }
   validates :name, presence: true
   validate :validate_movie_time_exist
 

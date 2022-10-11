@@ -3,6 +3,6 @@
 class AddMovieIdToMovieTime < ActiveRecord::Migration[6.1]
   def change
     remove_column :movie_times, :movie, :string
-    add_reference :movie_times, :movie, null: false, foreign_key: true
+    add_reference :movie_times, :movie, null: false, foreign_key: true, default: 0
   end
 end

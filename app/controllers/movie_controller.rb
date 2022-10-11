@@ -13,7 +13,7 @@ class MovieController < ApplicationController
     image = params[:image]
     @movie = Movie.new(title:, image:)
     if @movie.save
-      redirect_to '/movie/new', notice: 'Pelicula creada con exito'
+      redirect_to '/movie/new', notice: I18n.t('movie.post')
     else
       redirect_to '/movie/new', notice: @movie.errors.messages
     end
@@ -24,7 +24,7 @@ class MovieController < ApplicationController
                                                            :date_end, :room)
     movie_time = MovieTime.create(movie_time_params)
     if movie_time.persisted?
-      redirect_to '/movie/new', notice: 'Pelicula asignada con exito'
+      redirect_to '/movie/new', notice: I18n.t('movie.creative_movie_time')
     else
       redirect_to '/movie/new', notice: movie_time.errors.messages
     end
