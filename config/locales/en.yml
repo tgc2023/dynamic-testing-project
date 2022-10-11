@@ -30,4 +30,21 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  reserva:
+    horario: '%<value>s no es un horario valido'
+    sala: '%<value>s no es una sala existente' 
+    reservas_creation_right: 'Reserva ingresada correctamente'
+    reservas_creation_select: 'Selecciona uno de los asientos para crear una reserva'
+  movie:
+    post: 'Pelicula creada con éxito' 
+    creative_movie_time: 'Pelicula asignada con exito'
+    title_max: 'El titulo tiene que ser de menos de 128 caracteres'
+    title_empty: 'El titulo no puede estar vacio'
+  movie_time:
+    movie_id: 'Falta elegir una película'
+    date_end: 'Falta la fecha final'
+    date_start: 'Falta la fecha inicial'
+    time_inclusion: '%<value>s no es un horario valido'
+    time_presence: 'Falta el horario'
+    room_numericality: 'La sala no existe'
+    room_presence: 'Falta la sala'

@@ -27,7 +27,7 @@ def reservas_validation(instancias_reservas)
     reservas_creation(instancias_reservas)
   elsif params[:name].blank?
     redirect_to new_reserva_path(params[:sala], params[:fecha], params[:horario]),
-                notice: 'No se ingreso nombre para la reserva'
+                notice: I18n.t('reservas_validation_blank')
   else
     redirect_to new_reserva_path(params[:sala], params[:fecha], params[:horario]),
                 notice: 'No se pudo completar la reserva ya que uno de los asientos estaba
@@ -38,11 +38,11 @@ end
 def reservas_creation(instancias_reservas)
   if instancias_reservas.empty?
     redirect_to new_reserva_path(params[:sala], params[:fecha], params[:horario]),
-                notice: 'Selecciona uno de los asientos para crear una reserva'
+                notice: I18n.t('reserva.reservas_creation_select')
   else
     instancias_reservas.each(&:save)
     redirect_to new_reserva_path(params[:sala], params[:fecha], params[:horario], success: true),
-                notice: 'Reserva ingresada correctamente'
+                notice: I18n.t('reserva.reservas_creation_right')
   end
 end
 

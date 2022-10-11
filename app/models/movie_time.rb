@@ -3,15 +3,15 @@
 # Model that represents a movie assign to a room on a specific time and date range
 class MovieTime < ApplicationRecord
   belongs_to :movie
-  validates :room, presence: { message: 'Falta la sala' },
+  validates :room, presence: { message: I18n.t('movie_time.presence') },
                    numericality: { only_integer: true, greater_than: 0,
-                                   less_than_or_equal_to: 8, message: 'La sala no existe' }
-  validates :time, presence: { message: 'Falta el horario' },
+                                   less_than_or_equal_to: 8, message: I18n.t('movie_time.room_numericality') }
+  validates :time, presence: { message: I18n.t('movie_time.time_presence') },
                    inclusion: { in: %w[MATINÉ TANDA NOCHE],
-                                message: '%<value>s no es un horario valido' }
-  validates :date_start, presence: { message: 'Falta la fecha inicial' }
-  validates :date_end, presence: { message: 'Falta la fecha final' }
-  validates :movie_id, presence: { message: 'Falta elegir una pelicula' }
+                                message: I18n.t('movie_time.time_inclusion') }
+  validates :date_start, presence: { message: I18n.t('movie_time.date_start') }
+  validates :date_end, presence: { message: I18n.t('movie_time.date_end') }
+  validates :movie_id, presence: { message: I18n.t('movie_time.movie_id') }
   validate :validate_date
 
   def validate_date
