@@ -13,7 +13,7 @@ jobs:
           bundler-cache: true
       - name: Run rubocop
         run: bundle exec rubocop
-  test:
+  Test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -23,15 +23,12 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test_database
-        options: --healt-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+          POSTGRES_DB: test_database_name
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2'
-          bundler-cache: true
       - name: Install dependencies
         run: bundle install
       - name: Create Data base
@@ -39,8 +36,7 @@ jobs:
           RAILS_ENV: "test"
           DB_USER: postgres
           DB_PASSWORD: postgres
-          DATABASE_URL: "postgres://postgres@localhost:5432/test_database"
-      - name: Run tests
+          DATABASE_URL: "postgres://postgres@localhost:5432/test_database_name"
         run: |
           bundle exec rake db:create
           bundle exec rake db:schema:load
