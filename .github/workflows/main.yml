@@ -1,5 +1,5 @@
 name: Rubocop
-on: [pull_request]
+on: [pull_request, push]
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -12,6 +12,7 @@ jobs:
           ruby-version: '3.1.2'
           bundler-cache: true
       - name: Run rubocop
+
         run: bundle exec rubocop
   Test:
     runs-on: ubuntu-latest
