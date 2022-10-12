@@ -2,7 +2,7 @@ name: Rubocop
 on: [pull_request]
 jobs:
   rubocop:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
       - name: Run rubocop
         run: bundle exec rubocop
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     services:
       postgres:
         image: postgres:14.5
@@ -27,6 +27,7 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2'
       - name: Install dependencies
