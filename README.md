@@ -4,9 +4,9 @@
 
 
 ### Logros
- Dejar explicito lo que no lograron hacer de la entrega o si lograron hacer todo lo pedido
+Se logró hacer todo lo pedido, lo que se alude a: configuración de ruboco y eliminiación de ofensas, automatización de ejecución de: rubocop y tests para cada evento de pull request.
 
 ### Consideraciones generales para la correcion
-Cualquier detalle que consideren que puede ser útil para el corrector. Ej:
-bugs detectados, pasos adicionales de setup, cosas que no sean tan claras relacionadas con el uso de su aplicacion, entre otros
+Las ofensas de ruboco se eliminaron mediante extensión de algunas reglas, como lineas máxima de un método. También para eliminar otras ofensas, se modificó el archivo en.yml con el fin de dejar
+todas la respuestas a los outputs de controladores y métodos de modelos, que luego fueron obtenida mediante la acción de la libraría I18n
 
