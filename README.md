@@ -1,6 +1,6 @@
-# Proyecto DCCinema Grupo X
-#### Entrega: X
-#### Url Heroku:
+# Proyecto DCCinema Grupo 34
+#### Entrega: 1
+#### Url Heroku: https://iic3745-testing-proyect.herokuapp.com/
 
 
 ### Logros
