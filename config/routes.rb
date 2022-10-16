@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post 'movie_time/new', to: 'movie#create_movie_time', as: 'new_movie_time'
   get '/', to: 'movie#home', as: 'home'
   get 'movies/list', to: 'movie#list_by_date', as: 'movies_by_date'
+  resources :stores
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

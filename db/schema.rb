@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_204327) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_204857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_204327) do
     t.datetime "updated_at", null: false
     t.date "date_start", null: false
     t.date "date_end", null: false
-    t.bigint "movie_id", default: 0, null: false
+    t.bigint "movie_id", null: false
     t.index ["movie_id"], name: "index_movie_times_on_movie_id"
   end
 
@@ -73,6 +73,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_204327) do
 
   create_table "rooms", force: :cascade do |t|
     t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.integer "price", default: 0
+    t.integer "category", default: 0
+    t.integer "weight_volume", default: 0
+    t.integer "unit_value", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
