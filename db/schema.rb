@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_204857) do
     t.datetime "updated_at", null: false
     t.date "date_start", null: false
     t.date "date_end", null: false
-    t.bigint "movie_id", null: false
+    t.bigint "movie_id", default: 0, null: false
     t.index ["movie_id"], name: "index_movie_times_on_movie_id"
   end
 

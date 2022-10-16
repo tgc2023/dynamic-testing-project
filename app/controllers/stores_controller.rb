@@ -1,5 +1,6 @@
-class StoresController < ApplicationController
+# frozen_string_literal: true
 
+class StoresController < ApplicationController
   def index
     @products = Store.all
   end
@@ -18,8 +19,8 @@ class StoresController < ApplicationController
   end
 
   private
+
   def store_params
     params.require(:store).permit(:price, :category, :weight_volume, :unit_value)
   end
-
 end
