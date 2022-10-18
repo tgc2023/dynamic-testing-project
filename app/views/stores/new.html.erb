@@ -1,0 +1,74 @@
+<% if notice %>
+  <div class="columns is-centered is-vcentered">
+    <div class="column"></div>
+    <% if notice.class == String %>
+      <div class="column">
+        <div class="notification is-success notice">
+            <p><i class='fas fa-circle'></i><%=" "+ notice%></p>
+        </div>
+      </div>
+    <%else %>
+        <div class="column">
+          <div class="notification is-danger notice">
+            <% notice.values.each{|error| %>
+              <p><i class='fas fa-circle'></i><%=" " + error[0]%></p>
+            <% }%>
+          </div>
+        </div>
+
+    <% end %>
+    <div class="column"></div>
+    </div>
+<% end %>
+<div class="columns is-centered is-vcentered">
+  <div class="column is-one-third has-text-centered">
+    <div class="box is-fullwidth new-store">
+      <p class="title is-5">Registra un nuevo producto</p>
+      <%= form_with model: @new_product do |form| %>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :Precio , 'Precio:'%>
+          </div>
+          <%= form.number_field :price, class:"input"%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :category, 'Categoría:' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :category, options_for_select(Store.categories.map {|key, value| [key.titleize, Store.categories.key(value)]}, @new_product.category)%>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-medium">
+                <%= form.label :weight_volume , 'Peso(kg/g)/Volumen(L/cc)'%>
+            </div>
+            <%= form.number_field :weight_volume, class:"input"%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium text_left">
+            <%= form.label :unit_value, 'Unidad de medida:' %>
+          </div>
+          <div class="select unit-value">
+            <%= form.select :unit_value, options_for_select(Store.unit_values.map {|key, value| [key.titleize, Store.unit_values.key(value)]}, @new_product.unit_value)%>
+          </div>
+        </div>
+        <%= form.submit "Crear", class: "button is-rounded is-link"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="column is-one-fifth"></div>
+  
+</div>
+<div class="columns is-centered">
+  <div class="column"></div>
+  <div class="column has-text-centered">
+    <%=link_to "Volver", home_path, class: "button is-rounded is-link" %>
+  </div>
+  <div class="column"></div>
+</div>
+<script>
+    console.log("script para ocultar último campo en caso de seleccionar 'souvenir' con stimulus-rails");
+    const val = document.getElementById('store_category').value;
+    console.log(val);
+</script>

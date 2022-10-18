@@ -3,6 +3,7 @@ const height = 400
 const color_free = '#126AD2'
 const color_reservado = '#9A0000'
 const color_selected = '#7ec462'
+console.log('Algo')
 document.addEventListener('DOMContentLoaded', function ()
 {
 const svg = d3.select("#svg_sala")
