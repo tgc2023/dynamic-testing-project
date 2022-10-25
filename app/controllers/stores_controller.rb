@@ -21,6 +21,11 @@ class StoresController < ApplicationController
     end
   end
 
+  def list_by_category
+    @category = params[:category]
+    @filter = Store.where(category: @category)
+  end
+
   private
 
   def store_params
