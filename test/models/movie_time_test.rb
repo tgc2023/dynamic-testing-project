@@ -15,7 +15,7 @@ class MovieTimeTest < ActiveSupport::TestCase
     Movie.destroy_all
   end
 
-  test 'MovieTime creada con día de inicio después del de termino' do
+  test 'MovieTime creada con día de inicio después que el de termino' do
     movie_time = MovieTime.create(room: 5, date_start: Date.new(2022, 10, 12),
                                   date_end: Date.new(2022, 10, 10),
                                   time: 'TANDA', movie_id: @movie.id)
