@@ -29,4 +29,9 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     get new_store_url
     assert_response :success
   end
+
+  test 'should get filter' do
+    get products_by_category_url(0)
+    assert_response :success
+  end
 end
