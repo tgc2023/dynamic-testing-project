@@ -3,6 +3,9 @@
 class StoresController < ApplicationController
   def index
     @products = Store.all
+    respond_to do |format|
+      format.html
+    end
   end
 
   def new
