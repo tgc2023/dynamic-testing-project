@@ -50,3 +50,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "iic3745-testing-proyect"
           heroku_email: "bbmoreno@uc.cl"
+        run: |
+          heroku run -a iic3745-testing-proyect bash
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
