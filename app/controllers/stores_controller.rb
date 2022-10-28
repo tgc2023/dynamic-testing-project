@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class StoresController < ApplicationController
-
   def index
     @products = Store.all
     respond_to do |format|
