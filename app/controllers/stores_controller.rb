@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: %i[show edit update destroy]
 
   def index
     category = params[:category].presence || 0
-    # categories_options = Store.where(category: category)
     @products = params[:filter] ? Store.where(category:) : Store.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @new_product = Store.new
@@ -25,8 +23,7 @@ class StoresController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @product.update(store_params)
