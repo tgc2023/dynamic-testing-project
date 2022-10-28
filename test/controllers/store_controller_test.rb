@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class StoreControllerTest < ActionDispatch::IntegrationTest
-
   def teardown
     Store.destroy_all
   end
@@ -39,21 +38,23 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
   test 'should be update success' do
     assert_difference 'Store.count' do
       product = Store.create(category: 1, price: 10, weight_volume: 10, unit_value: 0)
-      put store_url(id:product.id, store: {category: "Bebestible", price: 10, weight_volume: 10, unit_value: "Litros"})
+      put store_url(id: product.id,
+                    store: { category: 'Bebestible', price: 10, weight_volume: 10,
+                             unit_value: 'Litros' })
     end
   end
 
   test 'should be update failure' do
     assert_difference 'Store.count' do
       product = Store.create(category: 1, price: 10, weight_volume: 10, unit_value: 0)
-      put store_url(id:product.id, store: {category: "Bebestible", price: 10, unit_value: "Kg"})
+      put store_url(id: product.id, store: { category: 'Bebestible', price: 10, unit_value: 'Kg' })
     end
   end
 
   test 'should be delete success' do
     assert_no_changes 'Store.count' do
       product = Store.create(category: 1, price: 10, weight_volume: 10, unit_value: 0)
-      delete store_url(id:product.id)
+      delete store_url(id: product.id)
     end
   end
 
@@ -61,7 +62,6 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     get new_store_url
     assert_response :success
   end
- 
 
   test 'should get filter' do
     get products_by_category_url(0)
