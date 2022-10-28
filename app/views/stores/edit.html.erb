@@ -1,0 +1,43 @@
+<% if notice %>
+  <div class="columns is-centered is-vcentered">
+    <div class="column"></div>
+    <% if notice.class == String %>
+      <div class="column">
+        <div class="notification is-success notice">
+            <p><i class='fas fa-circle'></i><%=" "+ notice%></p>
+        </div>
+      </div>
+    <%else %>
+        <div class="column">
+          <div class="notification is-danger notice">
+            <% notice.values.each{|error| %>
+              <p><i class='fas fa-circle'></i><%=" " + error[0]%></p>
+            <% }%>
+          </div>
+        </div>
+
+    <% end %>
+    <div class="column"></div>
+    </div>
+<% end %>
+
+<div class="columns is-centered is-vcentered">
+  <div class="column is-one-third has-text-centered">
+    <div class="box is-fullwidth new-store">
+      <p class="title is-5">Editar el Producto</p>
+      <%= render "form", product: @product %>
+    </div>
+  </div>
+  <div class="column is-one-fifth"></div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column"></div>
+  <div class="column has-text-centered">
+    <%=link_to "Volver", stores_path, class: "button is-rounded is-link" %>
+  </div>
+  <div class="column"></div>
+</div>
+<script>
+    const val = document.getElementById('store_category').value;
+</script>
