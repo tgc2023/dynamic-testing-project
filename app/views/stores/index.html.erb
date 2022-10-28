@@ -9,7 +9,9 @@
         <div class="row align-self-center">
             <% @products.each do |c| %>
                 <div class="column has-text-centered">
-                    <%= link_to "#{c.id} #{c.category} PRECIO: #{c.price}$ CANTIDAD: #{c.weight_volume} #{c.unit_value}", new_store_path%>
+                    <%= link_to "#{c.id} #{c.category} PRECIO: #{c.price}$ CANTIDAD: #{c.weight_volume} #{c.unit_value}", store_path(c)%>
+                    <%= button_to "Eliminar", store_path(c), method: :delete, class: "btn btn--light" %>
+                    <%= link_to "Editar", edit_store_path(c), class: "btn btn--light" %>
                 </div>
             <% end %>
         </div>
