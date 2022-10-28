@@ -36,6 +36,8 @@ en:
     reservas_creation_right: 'Reserva ingresada correctamente'
     reservas_creation_select: 'Selecciona uno de los asientos para crear una reserva'
     reservas_validation_blank: 'No se ingreso nombre para la reserva'
+  store:
+    post: 'Producto creado con éxito'
   movie:
     post: 'Pelicula creada con éxito' 
     creative_movie_time: 'Pelicula asignada con exito'

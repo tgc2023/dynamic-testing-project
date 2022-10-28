@@ -1,0 +1,45 @@
+<div class="home_container row">
+    <div class="col align-self-center">
+        <div class="row align-self-center">
+            <div class="columns is-centered is-vcentered">
+                <div class="column is-one-quarter has-text-centered">
+                    <h1>Filtrar por categoría: </h1>
+                </div>
+                <div class="column is-one-eighter has-text-centered">
+                    <%=link_to "Todos", stores_path(category: "Comestibles"), class: "button is-rounded is-link" %>
+                </div>
+                <div class="column is-one-eighter has-text-centered">
+                    <%=link_to "Bebestibles", stores_path(category: "Bebestible", filter: true), class: "button is-rounded is-link" %>
+                </div>
+                <div class="column is-one-eighter has-text-centered">
+                    <%=link_to "Comestibles", stores_path(category: "Comestibles",  filter: true), class: "button is-rounded is-link" %>
+                </div>
+                <div class="column is-one-eighter has-text-centered">
+                    <%=link_to "Souvenir", stores_path(category: "Souvenir",  filter: true), class: "button is-rounded is-link" %>
+                </div>
+            </div>
+            <div class="column  has-text-centered">
+                    <h1>Productos: </h1>
+                </div>
+        </div>
+        <%if @products %>
+        <div class="row align-self-center">
+            <% @products.each do |c| %>
+                <div class="column has-text-centered">
+                    <%= "#{c.id} #{c.category} PRECIO: #{c.price}$ CANTIDAD: #{c.weight_volume} #{c.unit_value}"%>
+                    <%= button_to "Eliminar", store_path(c), method: :delete, class: "btn btn--light" %>
+                    <%= link_to "Editar", edit_store_path(c), class: "btn btn--light" %>
+                </div>
+            <% end %>
+        </div>
+        <div class="row align-self-center">
+            <div class="column has-text-centered">
+                <%=link_to "Crea nuevo producto", new_store_path, class: "button is-rounded is-link" %>
+            </div>
+            <div class="column has-text-centered">
+                <%=link_to "Home", home_path, class: "button is-rounded is-link" %>
+            </div>
+        </div>
+      <%end%>
+    </div>
+</div>

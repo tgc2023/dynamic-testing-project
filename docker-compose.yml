@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    container_name: docker-testing-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test_database_name
+    ports:
+      - 5432:5432
+    volumes:
+      - 'dbdata:/var/lib/postgresql/data'
+  web:
+    build: .
+    image: docker-testing
+    container_name: testing-proyect
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      - RAILS_ENV=test
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DATABASE_URL=postgres://postgres@db:5432/test_database_name
+    command: >
+      sh -c "bundle exec rails db:create db:migrate db:seed &&
+             bundle exec rails server"
+    volumes:
+      - .:/docker-testing
+volumes:
+  dbdata:
