@@ -12,7 +12,7 @@ jobs:
           ruby-version: '3.1.2'
           bundler-cache: true
       - name: Run rubocop
-        run: bundle exec rubocop -a
+        run: bundle exec rubocop
   Test:
     runs-on: ubuntu-latest
     services:
