@@ -18,11 +18,10 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_no_changes 'Store.count' do
       post stores_url,
            params: { store: { price: 2, category: 'Bebestible', weight_volume: 3, unit_value: 'Kg' } }
-           post stores_url,
+      post stores_url,
            params: { store: { price: 2, category: 'Comestibles', weight_volume: 3, unit_value: 'Litros' } }
     end
   end
-  
 
   test 'post new product with invalid paremeters' do
     assert_no_changes 'Store.count' do
