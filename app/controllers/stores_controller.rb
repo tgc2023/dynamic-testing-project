@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Store.all
     respond_to do |format|
       format.html
     end
-  end
-
-  def show
   end
 
   def new
@@ -24,9 +20,6 @@ class StoresController < ApplicationController
     else
       redirect_to '/stores/new', notice: @product.errors.messages
     end
-  end
-
-  def edit
   end
 
   def update
