@@ -4,10 +4,10 @@ class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Store.all
-    respond_to do |format|
-      format.html
-    end
+    category = params[:category].blank? ? 0 : params[:category]
+    #categories_options = Store.where(category: category)
+    @products = params[:filter] ? Store.where(category: category) : Store.all
+    puts(@products)
   end
 
   def show
