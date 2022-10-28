@@ -12,5 +12,5 @@ todas la respuestas a los outputs de controladores y métodos de modelos, que lu
 
 #### Entrega: 2
 
-###Logros
+### Logros
 Se logró realizar todo lo solicitado, lo que alude a: CRUD para ventas, test de casos, 100% coverage. (sumando lo necesario de la entrega anterior)
