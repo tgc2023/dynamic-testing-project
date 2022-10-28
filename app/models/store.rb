@@ -9,13 +9,12 @@ class Store < ApplicationRecord
   validate :validate_category_unit_value
 
   def validate_category_unit_value
-    puts(category, unit_value, (category="Bebestible") && (unit_value == "Kg" || unit_value == "Gramos" ))
-    if (category="Bebestible") && (unit_value == "Kg" || unit_value == "Gramos" )
+    if (category == 'Bebestible') && (unit_value == 'Kg' || unit_value == 'Gramos')
       errors.add(:none_existing,
                  'Unidad inválida para un Bebestible
                  ')
 
-    elsif category="Comestibles" && (unit_value == "Litros" || unit_value != "Cc" )
+    elsif category == 'Comestibles' && (unit_value == 'Litros' || unit_value == 'Cc')
       errors.add(:none_existing,
                  'Unidad inválida para un Comestible
                  ')

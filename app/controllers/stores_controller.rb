@@ -2,10 +2,9 @@
 
 class StoresController < ApplicationController
   def index
-    category = params[:category].blank? ? 0 : params[:category]
-    #categories_options = Store.where(category: category)
-    @products = params[:filter] ? Store.where(category: category) : Store.all
-    puts(@products)
+    category = params[:category].presence || 0
+    # categories_options = Store.where(category: category)
+    @products = params[:filter] ? Store.where(category:) : Store.all
   end
 
   def new
