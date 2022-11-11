@@ -23,7 +23,7 @@ class MovieController < ApplicationController
 
   def create_movie_time
     movie_time_params = params.require(:movie_time).permit(:movie_id, :time, :date_start,
-                                                           :date_end, :room)
+                                                           :date_end, :room, :branch_office)
     movie_time = MovieTime.create(movie_time_params)
     if movie_time.persisted?
       redirect_to '/movie/new', notice: I18n.t('movie.creative_movie_time')

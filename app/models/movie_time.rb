@@ -12,6 +12,8 @@ class MovieTime < ApplicationRecord
   validates :date_start, presence: { message: I18n.t('movie_time.date_start') }
   validates :date_end, presence: { message: I18n.t('movie_time.date_end') }
   validates :movie_id, presence: { message: I18n.t('movie_time.movie_id') }
+  validates :branch_office, presence: { message: I18n.t('movie_time.branch_office') }
+
   validate :validate_date
 
   def validate_date
