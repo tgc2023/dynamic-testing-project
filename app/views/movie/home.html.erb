@@ -26,6 +26,28 @@
           </div>
           <%= form.date_field :date , class: 'input', required: 'required', min: Date.today%>
         </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label "Sucursal:", class:'label' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :branch, ["Santiago", "Regional"], class: 'select', required: 'required'%>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label "Idioma:", class:'label' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :idiom, ["Español", "Ingles"], class: 'select', required: 'required'%>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label "Edad:", class:'label' %>
+          </div>
+          <%= form.number_field :age, class:"input", required: 'required', min: 1%>
+        </div>
         <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
       <% end %>
     </div>
