@@ -10,6 +10,5 @@ class Movie < ApplicationRecord
     maximum: 128, message: I18n.t('movie.title_max')
   }
 
-  validates :adult_film, presence: { message: I18n.t('movie.adult_film') }
   validates :idiom, presence: { message: I18n.t('movie.idiom') }
 end

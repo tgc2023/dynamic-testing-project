@@ -31,6 +31,25 @@
           </div>
           <%= form.text_field :title, class:"input"%>
         </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label '+18:'%>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.check_box :adult_film %>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label 'Idioma:' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :idiom, options_for_select(Movie.idioms.map {|key, value| [key.titleize, Movie.idioms.key(value)]})%>
+          </div>
+        </div>
+
         <div class="field is-horizontal">
           <div class="field-label is-medium">
             <%= form.label :Imagen, 'Imagen:' %>
