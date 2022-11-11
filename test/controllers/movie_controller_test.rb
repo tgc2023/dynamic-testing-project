@@ -4,7 +4,7 @@ require 'test_helper'
 
 class MovieControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @movie = Movie.create(title: 'Movie',  idiom: 'espanol', adult_film: false)
+    @movie = Movie.create(title: 'Movie', idiom: 'espanol', adult_film: false)
   end
 
   def teardown
@@ -28,11 +28,11 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'MovieTime.count' do
       post new_movie_time_url(movie_time: { room: 3, date_start: Date.new(2000, 11, 10),
                                             date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                            movie_id: @movie.id, branch_office: 'Santiago'})
+                                            movie_id: @movie.id, branch_office: 'Santiago' })
     end
   end
 
-  test 'create movie_time with invalid paremters' do
+  test 'create movie_time with invalid parameters' do
     assert_no_changes 'MovieTime.count' do
       post new_movie_time_url(movie_time: { room: 3, date_start: Date.new(2000, 11, 12),
                                             date_end: Date.new(2000, 11, 10), time: 'TANDA',
