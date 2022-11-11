@@ -95,6 +95,14 @@
         </div>
         <div class="field is-horizontal">
           <div class="field-label is-medium">
+            <%= form.label "Sucursal: " , class:'label'%>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :branch_office, options_for_select(MovieTime.branch_offices.map {|key, value| [key.titleize, MovieTime.branch_offices.key(value)]})%>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
             <%= form.label :room, "Sala: " , class:'label'%>
           </div>
           <div class="select is-fullwidth">

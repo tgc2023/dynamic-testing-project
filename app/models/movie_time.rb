@@ -3,6 +3,9 @@
 # Model that represents a movie assign to a room on a specific time and date range
 class MovieTime < ApplicationRecord
   belongs_to :movie
+
+  enum branch_office: { Santiago: 0, Regional: 1}
+
   validates :room, presence: { message: I18n.t('movie_time.presence') },
                    numericality: { only_integer: true, greater_than: 0,
                                    less_than_or_equal_to: 8, message: I18n.t('movie_time.room_numericality') }
