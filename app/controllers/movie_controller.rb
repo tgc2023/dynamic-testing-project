@@ -41,7 +41,7 @@ class MovieController < ApplicationController
              movie_times.branch_office = ? '
     puts @adult
     if @adult == '0'
-      query += 'and movies.adult_film == false'
+      query += 'and movies.adult_film = false'
     end
     @filter = Movie.includes(:movie_times).where([query, @date, @date, @branch]).references(:movie_times)
   end
