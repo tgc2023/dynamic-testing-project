@@ -4,7 +4,7 @@
 class MovieTime < ApplicationRecord
   belongs_to :movie
 
-  enum branch_office: { Santiago: 0, Regional: 1}
+  enum branch_office: { Santiago: 0, Regional: 1 }
 
   validates :room, presence: { message: I18n.t('movie_time.presence') },
                    numericality: { only_integer: true, greater_than: 0,
