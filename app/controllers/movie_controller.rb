@@ -11,7 +11,9 @@ class MovieController < ApplicationController
   def post
     title = params[:title]
     image = params[:image]
-    @movie = Movie.new(title:, image:)
+    adult_film = params[:adult_film]
+    idiom = params[:idiom]
+    @movie = Movie.new(title:, image:, adult_film:, idiom:)
     if @movie.save
       redirect_to '/movie/new', notice: I18n.t('movie.post')
     else
@@ -21,7 +23,7 @@ class MovieController < ApplicationController
 
   def create_movie_time
     movie_time_params = params.require(:movie_time).permit(:movie_id, :time, :date_start,
-                                                           :date_end, :room)
+                                                           :date_end, :room, :branch_office)
     movie_time = MovieTime.create(movie_time_params)
     if movie_time.persisted?
       redirect_to '/movie/new', notice: I18n.t('movie.creative_movie_time')

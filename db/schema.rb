@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_204857) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_201634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_204857) do
     t.date "date_start", null: false
     t.date "date_end", null: false
     t.bigint "movie_id", default: 0, null: false
+    t.integer "branch_office", default: 0, null: false
     t.index ["movie_id"], name: "index_movie_times_on_movie_id"
   end
 
@@ -58,6 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_204857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.boolean "adult_film", default: false, null: false
+    t.integer "idiom", default: 0, null: false
   end
 
   create_table "reservas", force: :cascade do |t|

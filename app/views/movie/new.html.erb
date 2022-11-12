@@ -31,6 +31,25 @@
           </div>
           <%= form.text_field :title, class:"input"%>
         </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label '+18:'%>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.check_box :adult_film %>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label 'Idioma:' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :idiom, options_for_select(Movie.idioms.map {|key, value| [key.titleize, Movie.idioms.key(value)]})%>
+          </div>
+        </div>
+
         <div class="field is-horizontal">
           <div class="field-label is-medium">
             <%= form.label :Imagen, 'Imagen:' %>
@@ -73,6 +92,14 @@
             <%= form.label :date_end, "Día Termino: ", class:'label' %>
           </div>
           <%= form.date_field :date_end , class: 'input', min: Date.today%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label "Sucursal: " , class:'label'%>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :branch_office, options_for_select(MovieTime.branch_offices.map {|key, value| [key.titleize, MovieTime.branch_offices.key(value)]})%>
+          </div>
         </div>
         <div class="field is-horizontal">
           <div class="field-label is-medium">

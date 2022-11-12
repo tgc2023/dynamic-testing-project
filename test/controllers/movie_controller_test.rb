@@ -14,7 +14,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
 
   test 'post a new movie valid parameter' do
     assert_difference 'Movie.count' do
-      post create_movie_url(title: 'title 1')
+      post create_movie_url(title: 'title 1', adult_film: true, idiom: 'espanol')
     end
   end
 
