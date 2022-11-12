@@ -39,10 +39,8 @@ class MovieController < ApplicationController
     query = 'movie_times.date_start   <= ? and
              movie_times.date_end     >= ? and
              movie_times.branch_office = ? '
-    puts @adult
-    if @adult == '0'
-      query += 'and movies.adult_film = false'
-    end
+    Rails.logger.debug @adult
+    query += 'and movies.adult_film = false' if @adult == '0'
     @filter = Movie.includes(:movie_times).where([query, @date, @date, @branch]).references(:movie_times)
   end
 end
