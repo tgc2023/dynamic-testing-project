@@ -31,7 +31,7 @@
             <%= form.label "Sucursal:", class:'label' %>
           </div>
           <div class="select is-fullwidth">
-            <%= form.select :branch, ["Santiago", "Regional"], class: 'select', required: 'required'%>
+            <%= form.select :branch_office, MovieTime.branch_offices, class: 'select', required: 'required'%>
           </div>
         </div>
         <div class="field is-horizontal">
@@ -39,14 +39,16 @@
             <%= form.label "Idioma:", class:'label' %>
           </div>
           <div class="select is-fullwidth">
-            <%= form.select :idiom, ["Español", "Ingles"], class: 'select', required: 'required'%>
+            <%= form.select :idiom, Movie.idioms, class: 'select', required: 'required'%>
           </div>
         </div>
         <div class="field is-horizontal">
           <div class="field-label is-medium">
-            <%= form.label "Edad:", class:'label' %>
+            <%= form.label '+18:'%>
           </div>
-          <%= form.number_field :age, class:"input", required: 'required', min: 1%>
+          <div class="select is-fullwidth">
+            <%= form.check_box :adult_film %>
+          </div>
         </div>
         <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
       <% end %>
